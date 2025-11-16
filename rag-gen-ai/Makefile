@@ -9,6 +9,10 @@ build:
 	docker build -t rag:1.0 .
 run:
 	docker run --network=host -d -it --name genai-rag rag:1.0
+
+run-jupyter:
+	docker run --network=host --rm -it --name jupyterhub quay.io/jupyter/datascience-notebook
+
 exec:
 	docker exec -it  genai-rag bash
 
