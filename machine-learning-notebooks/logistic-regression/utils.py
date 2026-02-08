@@ -4,7 +4,9 @@ from matplotlib import pyplot
 
 sys.path.append('..')
 
-def mapFeature(X1, X2, degree=6):
+# The following code is from Andrew NG course
+
+def map_feature(X1, X2, degree=6):
     """
     Maps the two input features to quadratic features used in the regularization exercise.    
     Feature mapping function to polynomial features. 
@@ -42,7 +44,7 @@ def mapFeature(X1, X2, degree=6):
 
 
 
-def plotDecisionBoundary(plotData, theta, X, y):
+def plot_decision_boundary(plotData, theta, X, y):
     """
     Plots the data points X and y into a new figure with the decision boundary defined by theta.
     Plots the data points with * for the positive examples and o for  the negative examples.
@@ -92,11 +94,11 @@ def plotDecisionBoundary(plotData, theta, X, y):
         # Evaluate z = theta*x over the grid
         for i, ui in enumerate(u):
             for j, vj in enumerate(v):
-                z[i, j] = np.dot(mapFeature(ui, vj), theta)
+                z[i, j] = np.dot(map_feature(ui, vj), theta)
 
         z = z.T  # important to transpose z before calling contour
         # print(z)
 
         # Plot z = 0
-        pyplot.contour(u, v, z, levels=[0], linewidths=2, colors='g')
-        pyplot.contourf(u, v, z, levels=[np.min(z), 0, np.max(z)], cmap='Greens', alpha=0.4)
+        pyplot.contour(u, v, z, levels=[0], linewidths=2, colors='b')
+        pyplot.contourf(u, v, z, levels=[np.min(z), 0, np.max(z)], cmap='plasma', alpha=0.4)
